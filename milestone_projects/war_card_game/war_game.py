@@ -123,7 +123,7 @@ while game_on:
 
                     # declare a winner is player two
                     print(f"\nSorry, {player_one.name}, you only have {len(player_one.all_cards)} left, so you cannot declare a war!")
-                    print(f"\nCongratulation {player_two.name}, you won that gain at round {round_count} with {len(player_two.all_cards)} cards enough for declaring a war!")
+                    print(f"\nCongratulation {player_two.name}, you won thatgame with {len(player_two.all_cards)} cards enough for declaring a war!")
 
                     # stop the round
                     take_round = False
@@ -135,7 +135,7 @@ while game_on:
 
                     # declare a winner is player two
                     print(f"\nSorry, {player_two.name}, you only have {len(player_two.all_cards)} left, so you cannot declare a war!")
-                    print(f"\nCongratulation {player_one.name}, you won that gain at round {round_count} with {len(player_one.all_cards)} cards enough for declaring a war!")
+                    print(f"\nCongratulation {player_one.name}, you won that game with {len(player_one.all_cards)} cards enough for declaring a war!")
 
                     # stop the round
                     take_round = False
