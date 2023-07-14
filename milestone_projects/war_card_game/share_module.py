@@ -22,10 +22,11 @@ class Shared:
     # param {string[]} acceptable_answers - the qualified list of answers to be input
     def request_confirmation(self, wish_message, bye_messgage):
         acceptable_answers = self.acceptable_answers
-        message = "Please respond 'Yes' or 'No' ('{}'): ".format(acceptable_answers)
+        message = "\nPlease respond 'Yes' or 'No' ('{}'): ".format(acceptable_answers)
         user_input = self.user_input_characters(acceptable_answers, message)
         
         if user_input in self.positive_answers:
+            print('\n' * 100)
             print(wish_message)
             return True
         elif user_input in self.negative_answers:

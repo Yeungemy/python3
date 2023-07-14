@@ -31,7 +31,8 @@ game_on = True
 shared = Shared()
 
 while game_on:
-    number_of_max_cards_removed = 14
+    max_cards_removed_for_war = 14
+    min_cards_removed_for_war = 10
     round_count = 0
     take_round = True
 
@@ -59,7 +60,7 @@ while game_on:
 
         # identify potential winner
         if len(player_one_cards) == 0 and len(player_two_cards) == 0:
-            print("That is a tie game since both parties have no cards on the hand")
+            print(f"\nCurrently, {player_one.name} has {len(player_one_cards)}, and \n{player_two.name} has {len(player_two_cards)}. \nThat is a tie game since both parties have no cards on the hand")
 
             # stop the round
             take_round = False
@@ -68,9 +69,9 @@ while game_on:
             game_on = shared.request_confirmation('Start again and have fun!', 'Bye-bye!')
         elif len(player_one_cards) == 0:
             # declare a winner is player two
-            print(f"Here is round {round_count}! {player_one.name} has no cards on hand")
-            print(f"Here is round {round_count}! {player_two.name} has {len(player_two.all_cards)}")
-            print(f"Congratulation {player_two.name}, you won that game at round {round_count}!")
+            print(f"\nHere is round {round_count}! {player_one.name} has no cards on hand")
+            print(f"\nHere is round {round_count}! {player_two.name} has {len(player_two.all_cards)}")
+            print(f"\nCongratulation {player_two.name}, you won that game at round {round_count}!")
 
             # stop the round
             take_round = False
@@ -79,9 +80,9 @@ while game_on:
             game_on = shared.request_confirmation('Start again and have fun!', 'Bye-bye!')
         elif len(player_two_cards) == 0:
             # declare a winner is player two
-            print(f"Here is round {round_count}! {player_two.name} has no cards on hand")
-            print(f"Here is round {round_count}! {player_one.name} has {len(player_one.all_cards)}")
-            print(f"Congratulation {player_one.name}, you won that game at round {round_count}!")
+            print(f"\nHere is round {round_count}! {player_two.name} has no cards on hand")
+            print(f"\nHere is round {round_count}! {player_one.name} has {len(player_one.all_cards)}")
+            print(f"\nCongratulation {player_one.name}, you won that game at round {round_count}!")
 
             # stop the round
             take_round = False
@@ -105,13 +106,13 @@ while game_on:
 
             else:
                 # display number of cards to be required for a war
-                number_of_cards_for_war = randint(5, number_of_max_cards_removed)
+                number_of_cards_for_war = randint(min_cards_removed_for_war, max_cards_removed_for_war)
 
-                print(f'WAR ALERT!!! That is a war at round {round_count}! {number_of_cards_for_war} cards are required to declare a war')
+                print(f'\nWAR ALERT!!! That is a war at round {round_count}! {number_of_cards_for_war} cards are required to declare a war')
 
                 # check number of cards remaining on each player's hands
                 if len(player_one_cards) < number_of_cards_for_war and len(player_two_cards) < number_of_cards_for_war:
-                    print("That is a tie game since both parties have no enought cards to declare a war")
+                    print("\nThat is a tie game since both parties have no enough cards to declare a war")
 
                     # stop the round
                     take_round = False
@@ -121,8 +122,8 @@ while game_on:
                 elif len(player_one.all_cards) < number_of_cards_for_war:
 
                     # declare a winner is player two
-                    print(f"Sorry, {player_one.name}, you only have {len(player_one.all_cards)} left, so you cannot declare a war")
-                    print(f"Congratulation {player_two.name}, you won that gain at round {round_count} with {len(player_two.add_cards - number_of_cards_for_war)} cards!")
+                    print(f"\nSorry, {player_one.name}, you only have {len(player_one.all_cards)} left, so you cannot declare a war!")
+                    print(f"\nCongratulation {player_two.name}, you won that gain at round {round_count} with {len(player_two.all_cards)} cards enough for declaring a war!")
 
                     # stop the round
                     take_round = False
@@ -133,8 +134,8 @@ while game_on:
                 elif len(player_two.all_cards) < number_of_cards_for_war:
 
                     # declare a winner is player two
-                    print(f"Sorry, {player_two.name}, you only have {len(player_two.all_cards)} left, so you cannot declare a war")
-                    print(f"Congratulation {player_one.name}, you won that gain at round {round_count} with {len(player_two.add_cards - number_of_cards_for_war)} cards!")
+                    print(f"\nSorry, {player_two.name}, you only have {len(player_two.all_cards)} left, so you cannot declare a war!")
+                    print(f"\nCongratulation {player_one.name}, you won that gain at round {round_count} with {len(player_one.all_cards)} cards enough for declaring a war!")
 
                     # stop the round
                     take_round = False
