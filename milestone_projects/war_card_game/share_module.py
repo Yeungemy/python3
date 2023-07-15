@@ -1,4 +1,9 @@
+from random import randint
+
 class Shared:
+    wish_msg = 'Start now and good luck!'
+    bye_msg = 'Bye_bye'
+
     def __init__(self) -> None:
         self.acceptable_answers = ['Yes', 'yes', 'YES', 'Y', 'y', 'No', 'no', 'NO', 'n', 'N']
         self.positive_answers = ['Yes', 'yes', 'YES', 'Y', 'y']
@@ -20,17 +25,17 @@ class Shared:
 
     # request a answer 'Yes' or 'No'
     # param {string[]} acceptable_answers - the qualified list of answers to be input
-    def request_confirmation(self, wish_message, bye_messgage):
+    def request_confirmation(self):
         acceptable_answers = self.acceptable_answers
         message = "\nPlease respond 'Yes' or 'No' ('{}'): ".format(acceptable_answers)
         user_input = self.user_input_characters(acceptable_answers, message)
         
         if user_input in self.positive_answers:
             print('\n' * 100)
-            print(wish_message)
+            print(self.wish_msg)
             return True
         elif user_input in self.negative_answers:
-            print(bye_messgage)
+            print(self.bye_msg)
             return False
         else:
             print("Sorry, I don't understand it")
@@ -38,20 +43,54 @@ class Shared:
     # promp for user input a digit as required
     # @param {number[]} list of acceptable numbers
     def user_input_digit(self, acceptable_digit):
-        position = 0
+        digit_input = 0
 
         # always check the digit input is in acceptable range
-        while position not in acceptable_digit:
+        while digit_input not in acceptable_digit:
             # promp for a digit 
             user_input = input("Please enter a digit {}: ".format(list(acceptable_digit)))
 
             # check whether the user input is a digit
             if user_input.isdigit():
                 # convert the user input to a integer if it is a digit
-                position = int(user_input)
+                digit_input = int(user_input)
 
                 # send a reminder if the user input is not a digit
-                if position not in acceptable_digit:
+                if digit_input not in acceptable_digit:
                     print("That digit is out of the acceptable list {}: ".format(list(acceptable_digit)))
 
-        return position
+        return digit_input
+    
+    def get_randon_integer(self, min, max):
+        return randint(min, max)
+    
+    # promp for user input a character as required
+    # @param {string[]} list of acceptable space characters
+    # @param {string} message - the message to remender user to enter as required
+    def user_input_characters(self, acceptable_characters, message):
+        user_input = ''
+
+        while not user_input.isalpha() or user_input not in acceptable_characters:
+            user_input = input(message).upper()
+
+            if not user_input.isalpha() or user_input not in acceptable_characters:
+                print(message)
+
+        return user_input
+
+
+    # player choose space marker
+    # @param {string[]} list of acceptable space characters
+    def choose_player_marker(self, acceptable_characters):
+        player2 = acceptable_characters[0]
+        message = "Please enter a single alphabet ('{}' or '{}'): ".format(acceptable_characters[0], acceptable_characters[1])
+        player1 = self.user_input_characters(acceptable_characters, message)
+        index_of_player1 = acceptable_characters.index(player1)
+
+        if index_of_player1 == 0:
+            player2 = acceptable_characters[1]    
+
+        return (player1, player2)
+
+    def display_player_marker(self, player_marker):
+        print("Current player is about to place a marker '{}' on the game board".format(player_marker))
