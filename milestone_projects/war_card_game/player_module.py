@@ -13,7 +13,7 @@ class Player:
     
     def proceed_round_check(self, min_card_deal = 5):     
         if len(self.all_cards) < min_card_deal:
-            print(f"\n{self.name} cannot deal current round of {min_card_deal} cards with only {len(self.all_cards)} cards left")  
+            print(f"\n{self.name} has insurfficient cards to proceed current round of {min_card_deal} cards")  
             return False
         return True
     

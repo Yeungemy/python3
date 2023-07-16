@@ -5,6 +5,7 @@ from share_module import Shared
 
 game_on = True
 shared = Shared()
+msg = 'to replay the game'
 
 while game_on:
     max_deal = 10
@@ -55,7 +56,7 @@ while game_on:
                 # player one declare as winner
                 player_one.declare_winner()
             
-            game_on = shared.request_confirmation('to replay the game')
+            game_on = shared.request_confirmation(msg)
 
         else:
             # identify potential winner
