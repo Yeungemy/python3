@@ -11,8 +11,11 @@ class Player:
     def __str__(self) -> str:
         return f'{self.name} has {len(self.all_cards)}'
     
-    def proceed_round_check(self, min_card_deal = 5):
-        return len(self.all_cards) > min_card_deal
+    def proceed_round_check(self, min_card_deal = 5):     
+        if len(self.all_cards) < min_card_deal:
+            print(f"\n{self.name} cannot deal current round of {min_card_deal} cards with only {len(self.all_cards)} cards left")  
+            return False
+        return True
     
     def remove_card(self):
         return self.all_cards.pop(0)
@@ -34,15 +37,19 @@ class Player:
     
     def player_cards_left_check(self):
         if len(self.all_cards) == 0: 
-            print(f"\n\nSorry, {self.name}, you have no cards left at round {self.round_count}!")
+            print(f"Sorry, {self.name}, you have no cards left at round {self.round_count}!")
         else:
-            print (f"\n\n{self.name} has {len(self.all_cards)} cards left at round {self.round_count}!")
+            print (f"{self.name} has {len(self.all_cards)} cards left at round {self.round_count}!")
 
     def declare_winner(self):
-        print(f"\n\nCONGRATULATION {self.name}, you won that game with {len(self.all_cards)} cards left at round {self.round_count}!")
+        print('\n')
+        print("*" * 90)
+        print(f"CONGRATULATION {self.name}, you won that game with {len(self.all_cards)} cards left at round {self.round_count}!")
+        print("*" * 90)
+        print('\n')
 
     def check_collateral_sufficiency(self, collateral):
         if len(self.all_cards) < collateral:
-            print(f"\n\nSorry, {self.name}, you have only {len(self.all_cards)} cards left, so you cannot collateralize {collateral} cards to declare a war")
+            print(f"Sorry, {self.name}, you have only {len(self.all_cards)} cards left, so you cannot collateralize {collateral} cards to declare a war")
             return False
         return True

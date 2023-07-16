@@ -3,9 +3,7 @@ this class will add card to deck
 '''
 
 from random import shuffle
-from card import Card
-from player import Player
-
+from card_module import Card
 class Deck():
     suits = ('spades♤', 'hearts♡', 'diamonds◇', 'clubs♧')
     ranks = (

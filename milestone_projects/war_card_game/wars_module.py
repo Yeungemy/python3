@@ -8,16 +8,21 @@ class Wars():
     def war_alert(self): 
         self.wars_count += 1
         self.wars_collateral_count += (self.war_collateral + 1)
-        print('\n\n')
-        print('*' * 64)
+        print('\n')
+        print("*" * 90)
         print(f'WAR ALERT!!! WAR ALERT!!! WAR ALERT!!! \nThat is the war {self.wars_count}! \nTo declare a war, each player must collaterlize extra {self.war_collateral} cards!')
-        print('*' * 64)
+        print("*" * 90)
+        print('\n')
         
     def declare_tie_game(self):
-        print(f"\nTIE GAME since both players cannot declare a war!")
+        print('\n')
+        print("*" * 90)
+        print(f"TIE GAME since both players cannot declare a war!")
+        print("*" * 90)
+        print('\n')
 
     def display_war_collateral(self):
-         print(f"\nTo declare a war, each player must collateralize extra {self.war_collateral} cards")
+         print(f"To declare a war, each player must collateralize extra {self.war_collateral} cards")
       
     def wars_collateral_update(self):
         if self.wars_count > 0:
