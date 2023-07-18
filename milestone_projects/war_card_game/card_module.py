@@ -2,6 +2,12 @@
 This class will create a single card object
 '''
 
+suits = ('spades♤', 'hearts♡', 'diamonds◇', 'clubs♧')
+ranks = (
+    'Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 
+    'Eight', 'Nine', 'Ten', 'Jack', 'King', 'Queen'
+    )
+
 class Card:
     face_values = {
         'Ace': 1, 'Two': 2, 'Three': 3, 'Four': 4, 

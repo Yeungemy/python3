@@ -6,15 +6,16 @@ from share_module import Shared
 game_on = True
 shared = Shared()
 msg = 'to replay the game'
+max_deal = 10
+min_deal = 1
+
+player_one = Player('Player_A', 0)
+player_two = Player('Player_b', 0)
+
 
 while game_on:
-    max_deal = 10
-    min_deal = 1
     take_round = True
     round_count = 0
-
-    player_one = Player('Player_A', 0)
-    player_two = Player('Player_b', 0)
 
     # define a new deck
     new_deck = Deck()
@@ -112,5 +113,5 @@ while game_on:
                         player_two.declare_winner() 
 
                     # request for a replay
-                    game_on = shared.request_confirmation()                     
+                    game_on = shared.request_confirmation(msg)                     
             
