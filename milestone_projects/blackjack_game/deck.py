@@ -1,5 +1,5 @@
 '''
-this class will add card to deck
+this class will hold 52 cards 
 '''
 suits = ('spades♤', 'hearts♡', 'diamonds◇', 'clubs♧')
 ranks = (
@@ -17,6 +17,11 @@ class Deck():
         for suit in suits:
             for rank in ranks:
                 self.all_cards.append(Card(suit, rank))
+    def __str__(self) -> str:
+        deckCom = ''
+        for card in self.all_cards:
+            deckCom += card.__str__() + '\n'
+        return deckCom
     
     def shuffle(self):
         shuffle(self.all_cards)

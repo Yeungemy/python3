@@ -27,7 +27,7 @@ class Shared:
     # param {string[]} acceptable_answers - the qualified list of answers to be input
     def request_confirmation(self, msg):
         acceptable_answers = self.acceptable_answers
-        message = "\nPlease respond 'Yes' or 'No' {} ('{}'): ".format(msg, acceptable_answers)
+        message = "\nPlease respond 'y' = 'Yes' or 'n' = 'No' {}: ".format(msg)
         user_input = self.user_input_characters(acceptable_answers, message)
         
         if user_input in self.positive_answers:
@@ -41,22 +41,43 @@ class Shared:
 
     # promp for user input a digit as required
     # @param {number[]} list of acceptable numbers
-    def user_input_digit(self, acceptable_digit):
+    def user_input_digit(self, acceptable_digit, msg = ''):
         digit_input = 0
 
         # always check the digit input is in acceptable range
         while digit_input not in acceptable_digit:
             # promp for a digit 
-            user_input = input("Please enter a digit {}: ".format(list(acceptable_digit)))
+            user_input = input("Please enter a digit {}: ".format(msg))
 
             # check whether the user input is a digit
-            if user_input.isdigit():
+            if user_input.isnumeric():
                 # convert the user input to a integer if it is a digit
                 digit_input = int(user_input)
 
                 # send a reminder if the user input is not a digit
                 if digit_input not in acceptable_digit:
-                    print("That digit is out of the acceptable list {}: ".format(list(acceptable_digit)))
+                    print("That digit is out of the acceptable list: ")
+
+        return digit_input
+    
+    # promp for user input a digit as required
+    # @param {number[]} list of acceptable numbers
+    def inputDigitWithinRange(self, min, max, msg = ''):
+        digit_input = min - 1
+
+        # always check the digit input is in acceptable range
+        while digit_input not in range(min, max):
+            # promp for a digit 
+            user_input = input("Please enter a digit {} within ({}, {}): ".format(msg, min, max))
+
+            # check whether the user input is a digit
+            if user_input.isnumeric():
+                # convert the user input to a integer if it is a digit
+                digit_input = int(user_input)
+
+                # send a reminder if the user input is not a digit
+                if digit_input not in range(min, max):
+                    print("That digit is out of the acceptable list: ")
 
         return digit_input
     
