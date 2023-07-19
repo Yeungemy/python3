@@ -52,13 +52,12 @@ class Chips:
     def calculate_earnings(self):
         earnings = self.win - self.loss
 
-        print("\n" * 3) 
-        print("*******************************************************************************\n")
+        print("\n*******************************************************************************\n")
         if earnings > 0:
-            print(f"Congratulation, you have earned ${earnings}!!!")
+            print(f"Congratulation, you have total won ${earnings} and see you next time!!!")
         elif earnings < 0:
-            print(f"Sorry, you have lost ${-earnings} and good luck next time")
+            print(f"Sorry, you have total lost ${-earnings} and good luck next time!")
         else:
-            print("You have lots of fun here without earning or loss any money at all!")
+            print("You have lots of fun here without winning or lossing any money at all!")
 
         print("\n*******************************************************************************\n")
