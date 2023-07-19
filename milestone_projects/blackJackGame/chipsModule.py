@@ -9,6 +9,8 @@ class Chips:
     def __init__(self, total = 100) -> None:
         self.total = total
         self.bet = 5
+        self.loss = 0
+        self.win = 0
 
     def __str__(self) -> str:
         return f"The balance of chips are {self.total}"
@@ -41,6 +43,22 @@ class Chips:
 
     def win_bet(self):
         self.total += self.bet
+        self.win += self.bet 
 
     def lose_bet(self):
         self.total -= self.bet
+        self.loss += self.bet
+    
+    def calculate_earnings(self):
+        earnings = self.win - self.loss
+
+        print("\n" * 3) 
+        print("*******************************************************************************\n")
+        if earnings > 0:
+            print(f"Congratulation, you have earned ${earnings}!!!")
+        elif earnings < 0:
+            print(f"Sorry, you have lost ${-earnings} and good luck next time")
+        else:
+            print("You have lots of fun here without earning or loss any money at all!")
+
+        print("\n*******************************************************************************\n")

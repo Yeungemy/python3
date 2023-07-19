@@ -72,6 +72,8 @@ class Deck:
             elif dealer_hand.values < player_hand.values:
                 print(f"CONGRATULATION {player_hand.name}, you won the bet with more points than the dealer!")
                 player_chips.win_bet()
+            elif dealer_hand.values == player_hand.values:
+                print("TIE GAME!!!")
             else:
                 print(f"Sorry {player_hand.name}, you lost the bet with less points than the dealer!")
                 player_chips.lose_bet()

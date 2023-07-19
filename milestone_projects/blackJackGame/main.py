@@ -41,3 +41,6 @@ while game_on:
         # request a replay
         take_round = False
         game_on = test_deck.replay_check()
+
+        if not game_on:
+            player_chips.calculate_earnings()
