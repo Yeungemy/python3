@@ -43,4 +43,5 @@ while game_on:
         game_on = test_deck.replay_check()
 
         if not game_on:
+            # print summary for player
             player_chips.calculate_earnings()

@@ -29,7 +29,7 @@ class Deck:
     
     def greeting(self):
         print("\n" * 100)
-        print("Welcome BlackJack Game Board!\n")
+        print("Welcome BlackJack Game Board!")
     
     def shuffle(self):
         shuffle(self.deck)

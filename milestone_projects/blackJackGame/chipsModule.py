@@ -54,10 +54,10 @@ class Chips:
 
         print("\n*******************************************************************************\n")
         if earnings > 0:
-            print(f"Congratulation, you have total won ${earnings} and see you next time!!!")
+            print(f"Congratulation, you have won total of ${earnings} and see you next time!!!")
         elif earnings < 0:
-            print(f"Sorry, you have total lost ${-earnings} and good luck next time!")
+            print(f"You have lots of fun with total cost of ${-earnings} and good luck next time!")
         else:
-            print("You have lots of fun here without winning or lossing any money at all!")
+            print("You have lots of fun here without any costs at all!")
 
         print("\n*******************************************************************************\n")
