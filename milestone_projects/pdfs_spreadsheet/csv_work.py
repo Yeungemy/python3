@@ -10,7 +10,13 @@ def read_csv_file(csv_file):
     f = open(csv_file, encoding='utf8')
     csv_data = csv.reader(f)
     csv_data_lines = list(csv_data)
+    f.close()
     return csv_data_lines
+
+def create_csv_file(new_csv_file, rows, newline = ''):
+    f = open(new_csv_file, "w")
+    csv_writer = csv.writer(f, delimiter=',', quoting = csv.QUOTE_ALL)
+    csv_writer.writerows(rows)
 
 # print(len(csv_data_lines))
 
@@ -31,3 +37,5 @@ for line in csv_data_lines[1:5]:
 
 print(full_names)
 print(emails)
+
+create_csv_file("milestone_projects/pdfs_spreadsheet/new_example.csv", [[1, 2, 3], [3, 4, 5]])
