@@ -17,6 +17,7 @@ def create_csv_file(new_csv_file, rows, newline = ''):
     f = open(new_csv_file, "w")
     csv_writer = csv.writer(f, delimiter=',', quoting = csv.QUOTE_ALL)
     csv_writer.writerows(rows)
+    f.close()
 
 # print(len(csv_data_lines))
 

@@ -10,7 +10,7 @@ def read_pdf(file_name):
     pdf_contents = ""
 
     for pdf_page in pdf_pages:
-        pdf_contents += "\n"+ str(pdf_page.extract_text) + "\n"
+        pdf_contents += "\n"+ str(pdf_page.extract_text()) + "\n"
     
     f.close()
     return pdf_contents
