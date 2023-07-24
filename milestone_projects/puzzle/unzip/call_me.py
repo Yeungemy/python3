@@ -18,7 +18,7 @@ def read_file(file_path, need_close = True):
 
 def search_in_directory(dir_path, pattern):
     results = []
-    for folder, subfolder, files in os.walk(dir_path):
+    for folder, files in os.walk(dir_path):
         for f in files:
             file_path = folder + '//' + f
             result = re.findall(pattern,  folder + '//' + read_file(file_path))

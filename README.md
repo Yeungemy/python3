@@ -34,3 +34,11 @@ https://codingbat.com/python
 
 unit test - Pylint Unittest
 pylint myexample.py -r y
+
+# set up web scraping libraries
+pip install requests
+pip install lxml
+pip install bs4
+
+# work with image
+pip install pillow
