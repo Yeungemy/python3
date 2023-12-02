@@ -27,7 +27,7 @@ def split_array(nums):
 
     return group1, group2
 
-nums = [1, 2, 2, 3, 3, 3, 3, 3, 5, 2, 3, 5, 6, 9, 10]
+nums = [1, 1, 1, 3, 3, 3, 3, 3, 3, 2, 3, 3, 2, 2, 1]
 start = time.time()
 group1, group2 = split_array(nums)
 end = time.time()
